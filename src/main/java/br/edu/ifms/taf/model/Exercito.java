@@ -16,7 +16,7 @@ public class Exercito implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 	private String nome;
 	@OneToMany(mappedBy = "exercito")
 	List<Cma> cmas = new ArrayList<Cma>();
@@ -25,17 +25,17 @@ public class Exercito implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Exercito(Long id, String nome) {
+	public Exercito(Integer id, String nome) {
 		super();
 		this.id = id;
 		this.nome = nome;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

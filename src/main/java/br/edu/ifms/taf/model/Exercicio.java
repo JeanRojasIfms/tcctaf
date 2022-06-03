@@ -14,13 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class Exercicio implements Serializable{
 
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 	private String nome;
 	private String conceito;
 	@JsonIgnore
@@ -31,18 +29,18 @@ public class Exercicio implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Exercicio(Long id, String nome, String conceito) {
+	public Exercicio(Integer id, String nome, String conceito) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.conceito = conceito;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

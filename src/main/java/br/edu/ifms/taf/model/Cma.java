@@ -20,7 +20,7 @@ public class Cma implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 	private String nome;
 	@JsonIgnore
 	@ManyToOne
@@ -33,18 +33,18 @@ public class Cma implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Cma(Long id, String nome, Exercito exercito) {
+	public Cma(Integer id, String nome, Exercito exercito) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.exercito = exercito;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

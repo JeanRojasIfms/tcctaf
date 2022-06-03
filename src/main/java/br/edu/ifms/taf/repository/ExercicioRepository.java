@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import br.edu.ifms.taf.model.Exercicio;
 
 @Repository
-public interface ExercicioRepository extends JpaRepository<Exercicio, Long>{
+public interface ExercicioRepository extends JpaRepository<Exercicio, Integer>{
 
 }

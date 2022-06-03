@@ -20,7 +20,7 @@ public class Pelotao implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 	private String nome;
 	@OneToMany(mappedBy = "pelotao")
 	private List<Militar> militares = new ArrayList<Militar>();
@@ -35,7 +35,7 @@ public class Pelotao implements Serializable{
 
 	
 
-	public Pelotao(Long id, String nome, Companhia companhia) {
+	public Pelotao(Integer id, String nome, Companhia companhia) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -44,11 +44,11 @@ public class Pelotao implements Serializable{
 
 
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

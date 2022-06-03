@@ -21,7 +21,7 @@ public class Taf implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 	private String teste;
 	
 	@JsonFormat (pattern = "dd/MM/yyyy hh:mm")
@@ -38,18 +38,18 @@ public class Taf implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Taf(Long id, String teste, Date instante) {
+	public Taf(Integer id, String teste, Date instante) {
 		super();
 		this.id = id;
 		this.teste = teste;
 		this.instante = instante;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

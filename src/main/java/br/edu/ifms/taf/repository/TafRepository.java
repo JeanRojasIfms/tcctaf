@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import br.edu.ifms.taf.model.Taf;
 
 @Repository
-public interface TafRepository extends JpaRepository<Taf, Long>{
+public interface TafRepository extends JpaRepository<Taf, Integer>{
 
 }

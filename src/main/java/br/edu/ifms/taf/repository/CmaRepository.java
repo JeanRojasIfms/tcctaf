@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import br.edu.ifms.taf.model.Cma;
 
 @Repository
-public interface CmaRepository extends JpaRepository<Cma, Long>{
+public interface CmaRepository extends JpaRepository<Cma, Integer>{
 
 }

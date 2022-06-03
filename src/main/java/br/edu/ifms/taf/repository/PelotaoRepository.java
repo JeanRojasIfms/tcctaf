@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import br.edu.ifms.taf.model.Pelotao;
 
 @Repository
-public interface PelotaoRepository extends JpaRepository<Pelotao, Long>{
+public interface PelotaoRepository extends JpaRepository<Pelotao, Integer>{
 
 }

@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import br.edu.ifms.taf.model.Militar;
 
 @Repository
-public interface MilitarRepository extends JpaRepository<Militar, Long>{
+public interface MilitarRepository extends JpaRepository<Militar, Integer>{
 
 }

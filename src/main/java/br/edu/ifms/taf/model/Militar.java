@@ -17,7 +17,7 @@ public class Militar implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 	private String nome;
 	private String identidade;
 	private String cpf;
@@ -36,7 +36,7 @@ public class Militar implements Serializable{
 
 	
 
-	public Militar(Long id, String nome, String identidade, String cpf, Pelotao pelotao, Companhia companhia) {
+	public Militar(Integer id, String nome, String identidade, String cpf, Pelotao pelotao, Companhia companhia) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -48,11 +48,11 @@ public class Militar implements Serializable{
 
 
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import br.edu.ifms.taf.model.Companhia;
 
 @Repository
-public interface CompanhiaRepository extends JpaRepository<Companhia, Long>{
+public interface CompanhiaRepository extends JpaRepository<Companhia, Integer>{
 
 }

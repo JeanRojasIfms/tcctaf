@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import br.edu.ifms.taf.model.Omds;
 
 @Repository
-public interface OmdsRepository extends JpaRepository<Omds, Long>{
+public interface OmdsRepository extends JpaRepository<Omds, Integer>{
 
 }

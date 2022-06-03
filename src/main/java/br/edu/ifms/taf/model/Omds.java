@@ -17,7 +17,7 @@ public class Omds implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 	private String nome;
 	@JsonIgnore
 	@ManyToOne
@@ -28,18 +28,18 @@ public class Omds implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Omds(Long id, String nome, Gu gu) {
+	public Omds(Integer id, String nome, Gu gu) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.gu = gu;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

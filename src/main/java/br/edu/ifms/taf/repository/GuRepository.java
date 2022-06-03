@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import br.edu.ifms.taf.model.Gu;
 
 @Repository
-public interface GuRepository extends JpaRepository<Gu, Long>{
+public interface GuRepository extends JpaRepository<Gu, Integer>{
 
 }
