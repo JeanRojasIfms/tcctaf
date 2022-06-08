@@ -25,9 +25,7 @@ public class Militar implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="pelotao_id")
 	private Pelotao pelotao;
-	@JsonIgnore
-	@ManyToOne
-	@JoinColumn(name="companhia_id")
+
 	private Companhia companhia;
 	
 	public Militar() {

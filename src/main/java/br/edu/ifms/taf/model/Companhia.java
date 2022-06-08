@@ -8,7 +8,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Companhia implements Serializable{
@@ -18,29 +22,38 @@ public class Companhia implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 	private String nome;
-	@OneToMany(mappedBy = "companhia")
-	private List<Pelotao> pelotoes = new ArrayList<Pelotao>();
+	
+
+	@JsonIgnore
+	@ManyToOne
+	@JoinColumn(name="omds_id")
+	private Omds omds;
 	
 	@OneToMany(mappedBy = "companhia")
-	private List<Militar> militares = new ArrayList<Militar>();	
+	private List<Pelotao> pelotoes = new ArrayList<Pelotao>();
 	
 	public Companhia() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Companhia(Long id, String nome) {
+	
+
+	public Companhia(Integer id, String nome, Omds omds) {
 		super();
 		this.id = id;
 		this.nome = nome;
+		this.omds = omds;
 	}
 
-	public Long getId() {
+
+
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -52,23 +65,33 @@ public class Companhia implements Serializable{
 		this.nome = nome;
 	}
 
+	
+
+	public Omds getOmds() {
+		return omds;
+	}
+
+
+
+	public void setOmds(Omds omds) {
+		this.omds = omds;
+	}
+	
+	
+
+
+
 	public List<Pelotao> getPelotoes() {
 		return pelotoes;
 	}
 
+
+
 	public void setPelotoes(List<Pelotao> pelotoes) {
 		this.pelotoes = pelotoes;
 	}
-	
-	
 
-	public List<Militar> getMilitares() {
-		return militares;
-	}
 
-	public void setMilitares(List<Militar> militares) {
-		this.militares = militares;
-	}
 
 	@Override
 	public int hashCode() {
@@ -94,9 +117,9 @@ public class Companhia implements Serializable{
 			return false;
 		return true;
 	}
-	
-	
-	
+
+
+
 	
 	
 

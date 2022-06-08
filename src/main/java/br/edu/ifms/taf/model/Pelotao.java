@@ -22,12 +22,16 @@ public class Pelotao implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
-	@OneToMany(mappedBy = "pelotao")
-	private List<Militar> militares = new ArrayList<Militar>();
+	
 	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="companhia_id")
 	private Companhia companhia;
+	
+	
+	@OneToMany(mappedBy = "pelotao")
+	private List<Militar> militares = new ArrayList<Militar>();
+
 	
 	public Pelotao() {
 		// TODO Auto-generated constructor stub
@@ -78,6 +82,7 @@ public class Pelotao implements Serializable{
 		this.companhia = companhia;
 	}
 
+	
 
 
 	@Override
