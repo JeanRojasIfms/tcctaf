@@ -10,12 +10,14 @@ import br.edu.ifms.taf.model.Cma;
 import br.edu.ifms.taf.model.Companhia;
 import br.edu.ifms.taf.model.Exercito;
 import br.edu.ifms.taf.model.Gu;
+import br.edu.ifms.taf.model.Militar;
 import br.edu.ifms.taf.model.Omds;
 import br.edu.ifms.taf.model.Pelotao;
 import br.edu.ifms.taf.repository.CmaRepository;
 import br.edu.ifms.taf.repository.CompanhiaRepository;
 import br.edu.ifms.taf.repository.ExercitoRepository;
 import br.edu.ifms.taf.repository.GuRepository;
+import br.edu.ifms.taf.repository.MilitarRepository;
 import br.edu.ifms.taf.repository.OmdsRepository;
 import br.edu.ifms.taf.repository.PelotaoRepository;
 
@@ -34,6 +36,9 @@ public class DBService {
 	private CompanhiaRepository companhiaRepository;
 	@Autowired
 	private PelotaoRepository pelotaoRepository;
+	
+	@Autowired
+	private MilitarRepository militarRepository;
 
 	public void instantiateTestDatabase() throws ParseException {
 
@@ -88,12 +93,24 @@ public class DBService {
 		
 		cp1.getPelotoes().addAll(Arrays.asList(pl1,pl2,pl3,pl4));
 		
+		Militar m1 = new Militar(null, "Clodoaldo de Oliveira Silva", "111111111","555555555-55", pl4);	
+		Militar m2 = new Militar(null, "Jose Aparecido da Silva", "111111111","555555555-55", pl1);	
+		Militar m3 = new Militar(null, "Mario Velasquez dos Santos", "111111111","555555555-55", pl3);	
+		Militar m4 = new Militar(null, "Jose Carlos Silva", "111111111","555555555-55", pl4);	
+		Militar m5 = new Militar(null, "Edis Barreto de Jesus", "111111111","555555555-55", pl1);	
+		
+		pl4.getMilitares().addAll(Arrays.asList(m1,m4));
+		pl1.getMilitares().addAll(Arrays.asList(m2,m5));
+		pl3.getMilitares().addAll(Arrays.asList(m3));
+		
+		
 		exercitoRepository.saveAll(Arrays.asList(exe1));
 		cmaRepository.saveAll(Arrays.asList(cma1, cma2, cma3));
 		guRepository.saveAll(Arrays.asList(gu1,gu2,gu3,gu4,gu5,gu6));
 		omdsRepository.saveAll(Arrays.asList(om1,om2,om3,om4,om5,om6,om7,om8));
 		companhiaRepository.saveAll(Arrays.asList(cp1,cp2,cp3,cp4));
 		pelotaoRepository.saveAll(Arrays.asList(pl1,pl2,pl3,pl4));
+		militarRepository.saveAll(Arrays.asList(m1,m2,m3,m4,m5));
 		
 		
 		

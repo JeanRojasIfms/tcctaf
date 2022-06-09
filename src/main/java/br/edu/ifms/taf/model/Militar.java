@@ -26,23 +26,24 @@ public class Militar implements Serializable{
 	@JoinColumn(name="pelotao_id")
 	private Pelotao pelotao;
 
-	private Companhia companhia;
-	
+		
 	public Militar() {
 		// TODO Auto-generated constructor stub
 	}
 
 	
-
-	public Militar(Integer id, String nome, String identidade, String cpf, Pelotao pelotao, Companhia companhia) {
+	public Militar(Integer id, String nome, String identidade, String cpf, Pelotao pelotao) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.identidade = identidade;
 		this.cpf = cpf;
 		this.pelotao = pelotao;
-		this.companhia = companhia;
 	}
+
+
+
+
 
 
 
@@ -88,15 +89,7 @@ public class Militar implements Serializable{
 	
 	
 
-	public Companhia getCompanhia() {
-		return companhia;
-	}
-
-
-
-	public void setCompanhia(Companhia companhia) {
-		this.companhia = companhia;
-	}
+	
 
 
 
