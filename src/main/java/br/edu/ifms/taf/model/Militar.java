@@ -9,9 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
@@ -30,14 +29,9 @@ public class Militar implements Serializable{
 	@JoinColumn(name="pelotao_id")
 	private Pelotao pelotao;
 	
-	@ManyToMany
-	@JoinTable(
-			name="MILITAR_EXERCICIO",
-			joinColumns = @JoinColumn(name="militar_id"),
-			inverseJoinColumns = @JoinColumn(name="exercicio_id"))
-	private List<Exercicio> exercicios = new ArrayList<Exercicio>();
-
-		
+	@OneToMany(mappedBy = "militar")
+	private List<MilitarExercicio> militarExercicios = new ArrayList<MilitarExercicio>();
+	
 	public Militar() {
 		// TODO Auto-generated constructor stub
 	}
@@ -51,12 +45,6 @@ public class Militar implements Serializable{
 		this.cpf = cpf;
 		this.pelotao = pelotao;
 	}
-
-
-
-
-
-
 
 	public Integer getId() {
 		return id;
@@ -99,14 +87,14 @@ public class Militar implements Serializable{
 	}
 	
 	
-
-	public List<Exercicio> getExercicios() {
-		return exercicios;
+	
+	public List<MilitarExercicio> getMilitarExercicios() {
+		return militarExercicios;
 	}
 
 
-	public void setExercicios(List<Exercicio> exercicios) {
-		this.exercicios = exercicios;
+	public void setMilitarExercicios(List<MilitarExercicio> militarExercicios) {
+		this.militarExercicios = militarExercicios;
 	}
 
 

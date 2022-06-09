@@ -1,43 +1,48 @@
 package br.edu.ifms.taf.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
-public class Exercicio implements Serializable{
-
+public class MilitarExercicio implements Serializable{
+	
 
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private String nome;
-
+	private String conceito;
 	@JsonIgnore
-	@ManyToMany(mappedBy = "exercicios")
-	private List<Taf> tafs = new ArrayList<Taf>();	
+	@ManyToOne
+	@JoinColumn(name="militar_id")
+	private Militar militar;
+	@JsonIgnore
+	@ManyToOne
+	@JoinColumn(name="exercicio_id")
+	private Exercicio exercicio;
 	
-	@OneToMany(mappedBy = "exercicio")
-	private List<MilitarExercicio> militarExercicios = new ArrayList<MilitarExercicio>();
-		
-	public Exercicio() {
+	public MilitarExercicio() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Exercicio(Integer id, String nome) {
+
+
+	public MilitarExercicio(Integer id, String conceito, Militar militar, Exercicio exercicio) {
 		super();
 		this.id = id;
-		this.nome = nome;
+		this.conceito = conceito;
+		this.militar = militar;
+		this.exercicio = exercicio;
 	}
+
+
 
 	public Integer getId() {
 		return id;
@@ -47,33 +52,35 @@ public class Exercicio implements Serializable{
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getConceito() {
+		return conceito;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setConceito(String conceito) {
+		this.conceito = conceito;
 	}
 
+	public Militar getMilitar() {
+		return militar;
+	}
+
+	public void setMilitar(Militar militar) {
+		this.militar = militar;
+	}
 	
-	public List<Taf> getTafs() {
-		return tafs;
-	}
-
-	public void setTafs(List<Taf> tafs) {
-		this.tafs = tafs;
-	}
-	
 	
 
-
-	public List<MilitarExercicio> getMilitarExercicios() {
-		return militarExercicios;
+	public Exercicio getExercicio() {
+		return exercicio;
 	}
 
-	public void setMilitarExercicios(List<MilitarExercicio> militarExercicios) {
-		this.militarExercicios = militarExercicios;
+
+
+	public void setExercicio(Exercicio exercicio) {
+		this.exercicio = exercicio;
 	}
+
+
 
 	@Override
 	public int hashCode() {
@@ -91,7 +98,7 @@ public class Exercicio implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Exercicio other = (Exercicio) obj;
+		MilitarExercicio other = (MilitarExercicio) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -99,5 +106,7 @@ public class Exercicio implements Serializable{
 			return false;
 		return true;
 	}
+	
+	
 
 }

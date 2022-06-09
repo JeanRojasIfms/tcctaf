@@ -45,9 +45,11 @@ public class DBService {
 	@Autowired
 	private MilitarRepository militarRepository;
 	@Autowired
-	private ExercicioRepository exercicioRepository;
-	@Autowired
 	private TafRepository tafRepository;
+	@Autowired
+	private ExercicioRepository exercicioRepository;
+
+	
 
 	public void instantiateTestDatabase() throws ParseException {
 
@@ -58,10 +60,7 @@ public class DBService {
 		Cma cma3 = new Cma(null, "Comando militar de area Norte", exe1);
 
 		exe1.getCmas().addAll(Arrays.asList(cma1, cma2, cma3));
-
 		
-		// cmaRepository.saveAll(Arrays.asList(cma1,cma2,cma3));
-
 		Gu gu1 = new Gu(null, "Quarta brigada de cavalaria mecanizada", cma1);
 		Gu gu2 = new Gu(null, "Décima oitava brigada de infantaria do pantanal", cma1);
 		Gu gu3 = new Gu(null, "Décima terceira brigada de infantaria motorizada", cma1);
@@ -112,28 +111,6 @@ public class DBService {
 		pl1.getMilitares().addAll(Arrays.asList(m2,m5));
 		pl3.getMilitares().addAll(Arrays.asList(m3));
 		
-		Exercicio ex1 = new Exercicio(null, "Flexao de braço");
-		Exercicio ex2 = new Exercicio(null, "Corrida de 12 min");
-		Exercicio ex3 = new Exercicio(null, "Abdominal");
-		Exercicio ex4 = new Exercicio(null, "Flexao");
-		Exercicio ex5 = new Exercicio(null, "Pista de Pentatlo Militar");
-		
-		m1.getExercicios().addAll(Arrays.asList(ex1,ex2,ex3,ex4,ex5));
-		m2.getExercicios().addAll(Arrays.asList(ex1,ex2,ex3,ex4,ex5));
-		m3.getExercicios().addAll(Arrays.asList(ex1,ex2,ex3,ex4,ex5));
-		m4.getExercicios().addAll(Arrays.asList(ex1,ex2,ex3,ex4,ex5));
-		m5.getExercicios().addAll(Arrays.asList(ex1,ex2,ex3,ex4,ex5));
-						
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-				
-		Taf t1 = new Taf(null, "Primeira TAF", sdf.parse("01/04/2021 10:32"));
-		Taf t2 = new Taf(null, "Segunda TAF", sdf.parse("01/07/2021 10:32"));
-		Taf t3 = new Taf(null, "Terceira TAF", sdf.parse("01/10/2021 10:32"));
-		
-		t1.getExercicios().addAll(Arrays.asList(ex1,ex2,ex3,ex4,ex5));
-		t2.getExercicios().addAll(Arrays.asList(ex1,ex2,ex3,ex4,ex5));
-		t3.getExercicios().addAll(Arrays.asList(ex1,ex2,ex3,ex4,ex5));
-		
 		exercitoRepository.saveAll(Arrays.asList(exe1));
 		
 		cmaRepository.saveAll(Arrays.asList(cma1, cma2, cma3));
@@ -141,13 +118,27 @@ public class DBService {
 		omdsRepository.saveAll(Arrays.asList(om1,om2,om3,om4,om5,om6,om7,om8));
 		companhiaRepository.saveAll(Arrays.asList(cp1,cp2,cp3,cp4));
 		pelotaoRepository.saveAll(Arrays.asList(pl1,pl2,pl3,pl4));
+		
+		militarRepository.saveAll(Arrays.asList(m1,m2,m3,m4,m5));	
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+		
+		Taf t1 = new Taf(null, "Primeira TAF", sdf.parse("01/04/2021 10:32"));
+		Taf t2 = new Taf(null, "Segunda TAF", sdf.parse("01/07/2021 10:32"));
+		Taf t3 = new Taf(null, "Terceira TAF", sdf.parse("01/10/2021 10:32"));
+		
+		Exercicio ex1 = new Exercicio(null, "Flexao de braço");
+		Exercicio ex2 = new Exercicio(null, "Corrida de 12 min");
+		Exercicio ex3 = new Exercicio(null, "Abdominal");
+		Exercicio ex4 = new Exercicio(null, "Flexao");
+		Exercicio ex5 = new Exercicio(null, "Pista de Pentatlo Militar");
+		
+		t1.getExercicios().addAll(Arrays.asList(ex1,ex2,ex3,ex4,ex5));
+		t2.getExercicios().addAll(Arrays.asList(ex1,ex2,ex3,ex4,ex5));
+		t3.getExercicios().addAll(Arrays.asList(ex1,ex2,ex3,ex4,ex5));
+		
 		exercicioRepository.saveAll(Arrays.asList(ex1,ex2,ex3,ex4,ex5));
-		militarRepository.saveAll(Arrays.asList(m1,m2,m3,m4,m5));
 		tafRepository.saveAll(Arrays.asList(t1,t2,t3));
-		
-		
-		
-		
 		
 		
 		
