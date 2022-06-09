@@ -28,7 +28,7 @@ public class Militar implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="pelotao_id")
 	private Pelotao pelotao;
-	
+	@JsonIgnore
 	@OneToMany(mappedBy = "militar")
 	private List<MilitarExercicio> militarExercicios = new ArrayList<MilitarExercicio>();
 	

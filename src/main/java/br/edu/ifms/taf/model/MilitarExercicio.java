@@ -19,7 +19,7 @@ public class MilitarExercicio implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String conceito;
-	@JsonIgnore
+	//@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="militar_id")
 	private Militar militar;
