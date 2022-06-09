@@ -13,6 +13,7 @@ import br.edu.ifms.taf.model.Exercicio;
 import br.edu.ifms.taf.model.Exercito;
 import br.edu.ifms.taf.model.Gu;
 import br.edu.ifms.taf.model.Militar;
+import br.edu.ifms.taf.model.MilitarExercicio;
 import br.edu.ifms.taf.model.Omds;
 import br.edu.ifms.taf.model.Pelotao;
 import br.edu.ifms.taf.model.Taf;
@@ -21,6 +22,7 @@ import br.edu.ifms.taf.repository.CompanhiaRepository;
 import br.edu.ifms.taf.repository.ExercicioRepository;
 import br.edu.ifms.taf.repository.ExercitoRepository;
 import br.edu.ifms.taf.repository.GuRepository;
+import br.edu.ifms.taf.repository.MilitarExercicioRepository;
 import br.edu.ifms.taf.repository.MilitarRepository;
 import br.edu.ifms.taf.repository.OmdsRepository;
 import br.edu.ifms.taf.repository.PelotaoRepository;
@@ -48,6 +50,9 @@ public class DBService {
 	private TafRepository tafRepository;
 	@Autowired
 	private ExercicioRepository exercicioRepository;
+	
+	@Autowired
+	private MilitarExercicioRepository militarExercicioRepository;
 
 	
 
@@ -119,7 +124,7 @@ public class DBService {
 		companhiaRepository.saveAll(Arrays.asList(cp1,cp2,cp3,cp4));
 		pelotaoRepository.saveAll(Arrays.asList(pl1,pl2,pl3,pl4));
 		
-		militarRepository.saveAll(Arrays.asList(m1,m2,m3,m4,m5));	
+		//militarRepository.saveAll(Arrays.asList(m1,m2,m3,m4,m5));	
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 		
@@ -140,8 +145,27 @@ public class DBService {
 		exercicioRepository.saveAll(Arrays.asList(ex1,ex2,ex3,ex4,ex5));
 		tafRepository.saveAll(Arrays.asList(t1,t2,t3));
 		
+		militarRepository.saveAll(Arrays.asList(m1,m2,m3,m4,m5));	
 		
+		MilitarExercicio me1 = new MilitarExercicio(null, "B", m1, ex1);
+		MilitarExercicio me2 = new MilitarExercicio(null, "MB",m1, ex2);
+		MilitarExercicio me3 = new MilitarExercicio(null, "B", m1, ex3);
+		MilitarExercicio me4 = new MilitarExercicio(null, "B", m1, ex4);
+		MilitarExercicio me5 = new MilitarExercicio(null, "B", m1, ex5);
 		
+		MilitarExercicio me6 = new MilitarExercicio(null, "E", m2, ex1);
+		MilitarExercicio me7 = new MilitarExercicio(null, "MB", m2, ex2);
+		MilitarExercicio me8 = new MilitarExercicio(null, "MB", m2, ex3);
+		MilitarExercicio me9 = new MilitarExercicio(null, "B", m2, ex4);
+		MilitarExercicio me10 = new MilitarExercicio(null, "MB", m2, ex5);
+		
+		MilitarExercicio me11 = new MilitarExercicio(null, "MB", m3, ex1);
+		MilitarExercicio me12 = new MilitarExercicio(null, "MB", m3, ex2);
+		MilitarExercicio me13 = new MilitarExercicio(null, "MB", m3, ex3);
+		MilitarExercicio me14 = new MilitarExercicio(null, "E", m3, ex4);
+		MilitarExercicio me15 = new MilitarExercicio(null, "MB", m3, ex5);
+		
+		militarExercicioRepository.saveAll(Arrays.asList(me1,me2,me3,me4,me5,me6,me7,me8,me9,me10,me11,me12,me13,me14,me15));
 
 	}
 }
