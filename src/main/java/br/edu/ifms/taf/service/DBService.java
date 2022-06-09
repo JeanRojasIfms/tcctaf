@@ -1,6 +1,7 @@
 package br.edu.ifms.taf.service;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,18 +9,22 @@ import org.springframework.stereotype.Service;
 
 import br.edu.ifms.taf.model.Cma;
 import br.edu.ifms.taf.model.Companhia;
+import br.edu.ifms.taf.model.Exercicio;
 import br.edu.ifms.taf.model.Exercito;
 import br.edu.ifms.taf.model.Gu;
 import br.edu.ifms.taf.model.Militar;
 import br.edu.ifms.taf.model.Omds;
 import br.edu.ifms.taf.model.Pelotao;
+import br.edu.ifms.taf.model.Taf;
 import br.edu.ifms.taf.repository.CmaRepository;
 import br.edu.ifms.taf.repository.CompanhiaRepository;
+import br.edu.ifms.taf.repository.ExercicioRepository;
 import br.edu.ifms.taf.repository.ExercitoRepository;
 import br.edu.ifms.taf.repository.GuRepository;
 import br.edu.ifms.taf.repository.MilitarRepository;
 import br.edu.ifms.taf.repository.OmdsRepository;
 import br.edu.ifms.taf.repository.PelotaoRepository;
+import br.edu.ifms.taf.repository.TafRepository;
 
 @Service
 public class DBService {
@@ -39,6 +44,10 @@ public class DBService {
 	
 	@Autowired
 	private MilitarRepository militarRepository;
+	@Autowired
+	private ExercicioRepository exercicioRepository;
+	@Autowired
+	private TafRepository tafRepository;
 
 	public void instantiateTestDatabase() throws ParseException {
 
@@ -103,14 +112,41 @@ public class DBService {
 		pl1.getMilitares().addAll(Arrays.asList(m2,m5));
 		pl3.getMilitares().addAll(Arrays.asList(m3));
 		
+		Exercicio ex1 = new Exercicio(null, "Flexao de braço");
+		Exercicio ex2 = new Exercicio(null, "Corrida de 12 min");
+		Exercicio ex3 = new Exercicio(null, "Abdominal");
+		Exercicio ex4 = new Exercicio(null, "Flexao");
+		Exercicio ex5 = new Exercicio(null, "Pista de Pentatlo Militar");
+		
+		m1.getExercicios().addAll(Arrays.asList(ex1,ex2,ex3,ex4,ex5));
+		m2.getExercicios().addAll(Arrays.asList(ex1,ex2,ex3,ex4,ex5));
+		m3.getExercicios().addAll(Arrays.asList(ex1,ex2,ex3,ex4,ex5));
+		m4.getExercicios().addAll(Arrays.asList(ex1,ex2,ex3,ex4,ex5));
+		m5.getExercicios().addAll(Arrays.asList(ex1,ex2,ex3,ex4,ex5));
+						
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+				
+		Taf t1 = new Taf(null, "Primeira TAF", sdf.parse("01/04/2021 10:32"));
+		Taf t2 = new Taf(null, "Segunda TAF", sdf.parse("01/07/2021 10:32"));
+		Taf t3 = new Taf(null, "Terceira TAF", sdf.parse("01/10/2021 10:32"));
+		
+		t1.getExercicios().addAll(Arrays.asList(ex1,ex2,ex3,ex4,ex5));
+		t2.getExercicios().addAll(Arrays.asList(ex1,ex2,ex3,ex4,ex5));
+		t3.getExercicios().addAll(Arrays.asList(ex1,ex2,ex3,ex4,ex5));
 		
 		exercitoRepository.saveAll(Arrays.asList(exe1));
+		
 		cmaRepository.saveAll(Arrays.asList(cma1, cma2, cma3));
 		guRepository.saveAll(Arrays.asList(gu1,gu2,gu3,gu4,gu5,gu6));
 		omdsRepository.saveAll(Arrays.asList(om1,om2,om3,om4,om5,om6,om7,om8));
 		companhiaRepository.saveAll(Arrays.asList(cp1,cp2,cp3,cp4));
 		pelotaoRepository.saveAll(Arrays.asList(pl1,pl2,pl3,pl4));
+		exercicioRepository.saveAll(Arrays.asList(ex1,ex2,ex3,ex4,ex5));
 		militarRepository.saveAll(Arrays.asList(m1,m2,m3,m4,m5));
+		tafRepository.saveAll(Arrays.asList(t1,t2,t3));
+		
+		
+		
 		
 		
 		

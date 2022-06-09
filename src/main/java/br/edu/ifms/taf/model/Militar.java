@@ -1,12 +1,16 @@
 package br.edu.ifms.taf.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -25,6 +29,13 @@ public class Militar implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="pelotao_id")
 	private Pelotao pelotao;
+	
+	@ManyToMany
+	@JoinTable(
+			name="MILITAR_EXERCICIO",
+			joinColumns = @JoinColumn(name="militar_id"),
+			inverseJoinColumns = @JoinColumn(name="exercicio_id"))
+	private List<Exercicio> exercicios = new ArrayList<Exercicio>();
 
 		
 	public Militar() {
@@ -89,8 +100,14 @@ public class Militar implements Serializable{
 	
 	
 
-	
+	public List<Exercicio> getExercicios() {
+		return exercicios;
+	}
 
+
+	public void setExercicios(List<Exercicio> exercicios) {
+		this.exercicios = exercicios;
+	}
 
 
 	@Override

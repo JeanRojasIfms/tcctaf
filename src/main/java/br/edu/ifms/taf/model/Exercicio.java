@@ -20,20 +20,23 @@ public class Exercicio implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
-	private String conceito;
+
 	@JsonIgnore
 	@ManyToMany(mappedBy = "exercicios")
 	private List<Taf> tafs = new ArrayList<Taf>();
+	
+	@JsonIgnore
+	@ManyToMany(mappedBy = "exercicios")
+	private List<Militar> militares = new ArrayList<Militar>();
 	
 	public Exercicio() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Exercicio(Integer id, String nome, String conceito) {
+	public Exercicio(Integer id, String nome) {
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.conceito = conceito;
 	}
 
 	public Integer getId() {
@@ -52,20 +55,23 @@ public class Exercicio implements Serializable{
 		this.nome = nome;
 	}
 
-	public String getConceito() {
-		return conceito;
-	}
-
-	public void setConceito(String conceito) {
-		this.conceito = conceito;
-	}
-
+	
 	public List<Taf> getTafs() {
 		return tafs;
 	}
 
 	public void setTafs(List<Taf> tafs) {
 		this.tafs = tafs;
+	}
+	
+	
+
+	public List<Militar> getMilitares() {
+		return militares;
+	}
+
+	public void setMilitares(List<Militar> militares) {
+		this.militares = militares;
 	}
 
 	@Override
