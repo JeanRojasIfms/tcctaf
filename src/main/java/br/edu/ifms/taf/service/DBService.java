@@ -158,7 +158,7 @@ public class DBService {
 		MilitarExercicio me8 = new MilitarExercicio(null, "MB", m2, ex3);
 		MilitarExercicio me9 = new MilitarExercicio(null, "B", m2, ex4);
 		MilitarExercicio me10 = new MilitarExercicio(null, "MB", m2, ex5);
-		 
+		   
 		MilitarExercicio me11 = new MilitarExercicio(null, "MB", m3, ex1);
 		MilitarExercicio me12 = new MilitarExercicio(null, "MB", m3, ex2);
 		MilitarExercicio me13 = new MilitarExercicio(null, "MB", m3, ex3);
